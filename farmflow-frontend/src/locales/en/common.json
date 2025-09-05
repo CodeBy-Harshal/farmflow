@@ -1,0 +1,26 @@
+{
+  "app.name": "FarmFlow",
+
+  "role.farmer": "FARMER",
+  "role.buyer": "BUYER",
+  "role.admin": "ADMIN",
+
+  "nav.dashboard": "Dashboard",
+  "nav.products": "Products",
+  "nav.addProduct": "Add Product",
+  "nav.sales": "Sales",
+  "nav.cropInsights": "Crop Insights",
+  "nav.assistant": "Assistant",
+  "nav.marketplace": "Marketplace",
+  "nav.orders": "Orders",
+  "nav.users": "Users",
+  "nav.productCatalog": "Product Catalog",
+  "nav.home": "Home",
+
+  "actions.login": "Login",
+  "actions.logout": "Logout",
+
+  "status.paid": "Paid",
+  "status.awaiting": "Awaiting",
+  "status.toPay": "To Pay"
+}

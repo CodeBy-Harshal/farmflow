@@ -1,0 +1,26 @@
+{
+  "app.name": "FarmFlow",
+
+  "role.farmer": "शेतकरी",
+  "role.buyer": "खरेदीदार",
+  "role.admin": "प्रशासक",
+
+  "nav.dashboard": "डॅशबोर्ड",
+  "nav.products": "उत्पादने",
+  "nav.addProduct": "उत्पादन जोडा",
+  "nav.sales": "विक्री",
+  "nav.cropInsights": "पिक अंतर्दृष्टी",
+  "nav.assistant": "सहाय्यक",
+  "nav.marketplace": "मार्केटप्लेस",
+  "nav.orders": "ऑर्डर्स",
+  "nav.users": "वापरकर्ते",
+  "nav.productCatalog": "उत्पाद सूची",
+  "nav.home": "होम",
+
+  "actions.login": "लॉगिन",
+  "actions.logout": "लॉगआउट",
+
+  "status.paid": "भरले",
+  "status.awaiting": "प्रतीक्षेत",
+  "status.toPay": "देय"
+}

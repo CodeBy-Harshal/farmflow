@@ -1,0 +1,26 @@
+{
+  "app.name": "FarmFlow",
+
+  "role.farmer": "రైతు",
+  "role.buyer": "కొనుగోలుదారు",
+  "role.admin": "నిర్వాహకుడు",
+
+  "nav.dashboard": "డ్యాష్‌బోర్డ్",
+  "nav.products": "ఉత్పత్తులు",
+  "nav.addProduct": "ఉత్పత్తి జోడించండి",
+  "nav.sales": "అమ్మకాలు",
+  "nav.cropInsights": "పంట అవగాహనలు",
+  "nav.assistant": "సహాయకుడు",
+  "nav.marketplace": "మార్కెట్‌ప్లేస్",
+  "nav.orders": "ఆర్డర్లు",
+  "nav.users": "వినియోగదారులు",
+  "nav.productCatalog": "ఉత్పత్తి కేటలాగ్",
+  "nav.home": "హోమ్",
+
+  "actions.login": "లాగిన్",
+  "actions.logout": "లాగౌట్",
+
+  "status.paid": "చెల్లించబడింది",
+  "status.awaiting": "నిరీక్షణలో",
+  "status.toPay": "చెల్లించాలి"
+}

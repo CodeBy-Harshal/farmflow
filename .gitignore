@@ -1,0 +1,50 @@
+# ------------------------
+# Node.js dependencies
+# ------------------------
+farmflow-backend/node_modules/
+farmflow-frontend/node_modules/
+
+# ------------------------
+# Build / Output
+# ------------------------
+farmflow-frontend/build/
+farmflow-frontend/.next/
+farmflow-backend/dist/
+
+# ------------------------
+# Environment Files (private)
+# ------------------------
+farmflow-backend/.env
+farmflow-frontend/.env
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# ------------------------
+# Logs
+# ------------------------
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# ------------------------
+# OS Specific
+# ------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------
+# IDE / Editor
+# ------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
