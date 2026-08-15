@@ -307,3 +307,169 @@ Verify protected resources require authentication.
 
 **Note:**  
 This scenario will be tested through an appropriate protected API/resource without providing valid authentication credentials.
+
+
+---
+
+# 2. Authorization
+
+Test cases for verifying role-based access, protected functionality, authentication tokens, and resource-level authorization.
+
+---
+
+## TS-AUTHZ-001 - Authorized User Access
+
+**Scenario:**  
+Verify authorized user can access permitted functionality.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A valid authenticated user account is available.
+- The user has permission to access the tested functionality.
+
+**Test Steps:**
+
+1. Log in using an authorized user account.
+2. Navigate to the permitted functionality.
+3. Perform the applicable action.
+4. Observe the result.
+
+**Expected Result:**  
+The authorized user should be able to access and use the permitted functionality successfully.
+
+**Actual Result:**  
+The authorized user was able to access the permitted functionality successfully.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-AUTHZ-002 - Unauthorized User Access
+
+**Scenario:**  
+Verify unauthorized user cannot access restricted functionality.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A user without the required permission is available.
+
+**Test Steps:**
+
+1. Log in using an unauthorized user account.
+2. Attempt to access restricted functionality.
+3. Observe the application behavior.
+
+**Expected Result:**  
+The application should prevent the unauthorized user from accessing restricted functionality.
+
+**Actual Result:**  
+The unauthorized user was prevented from accessing the restricted functionality.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-AUTHZ-003 - Normal User Cannot Access Admin Functionality
+
+**Scenario:**  
+Verify normal user cannot access admin functionality.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A normal/non-admin user account is available.
+- Admin functionality exists and requires elevated permissions.
+
+**Test Steps:**
+
+1. Log in using a normal user account.
+2. Attempt to access admin functionality.
+3. Observe the application behavior.
+
+**Expected Result:**  
+A normal user should not be able to access admin-only functionality.
+
+**Actual Result:**  
+The normal user was prevented from accessing admin functionality.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-AUTHZ-004 - Invalid Authentication Token
+
+**Scenario:**  
+Verify invalid authentication token is rejected.
+
+**Preconditions:**
+
+- A protected API/resource is available.
+- An invalid authentication token is available for testing.
+
+**Test Steps:**
+
+1. Send a request to the protected resource.
+2. Provide an invalid authentication token.
+3. Observe the API response.
+
+**Expected Result:**  
+The application/API should reject the request when an invalid authentication token is provided.
+
+**Actual Result:**  
+The request containing the invalid authentication token was rejected.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-AUTHZ-005 - Unauthorized Resource Access
+
+**Scenario:**  
+Verify users cannot access unauthorized resources.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- An authenticated user account is available.
+- A resource that the user is not authorized to access is available.
+
+**Test Steps:**
+
+1. Log in using an authenticated user account.
+2. Attempt to access a resource that the user is not authorized to access.
+3. Observe the application/API response.
+
+**Expected Result:**  
+The application/API should prevent the user from accessing resources for which they do not have authorization.
+
+**Actual Result:**  
+The user was prevented from accessing the unauthorized resource.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
