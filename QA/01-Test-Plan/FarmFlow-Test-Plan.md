@@ -67,12 +67,24 @@ The following areas will be tested:
 
 #### Product Management
 
-- Product creation
-- Product retrieval
-- Product update
-- Product deletion
-- Product validation
-- Invalid product data
+Product management testing covers product creation, validation, product lifecycle, marketplace visibility, deletion permissions, and product access control.
+
+## Product Lifecycle
+
+The current FarmFlow product workflow is:
+
+```text
+Farmer Registers Product
+          ↓
+       PENDING
+          ↓
+   Admin Reviews Product
+          ↓
+        ACTIVE
+          ↓
+Product Appears in Marketplace
+          ↓
+     Buyer Can Purchase
 
 #### Order Management
 
