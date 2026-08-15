@@ -850,35 +850,56 @@ No evidence attached.
 
 ---
 
-## TS-ORDER-004 - Nonexistent Order Handling
+## TS-PROD-004 - Product Creation With Invalid Data
 
 **Scenario:**  
-Verify nonexistent order handling.
+Verify product creation with invalid data.
 
 **Preconditions:**
 
 - FarmFlow application is running.
-- Marketplace is accessible.
+- A valid farmer account is available.
+- Product creation functionality is accessible.
 
 **Test Steps:**
 
-1. Access the marketplace.
-2. Review the products available for ordering.
-3. Attempt to identify/access a product that is not available as a listed marketplace product.
-4. Observe the result.
+1. Log in as a farmer.
+2. Navigate to the Add Product page.
+3. Enter valid product information.
+4. Enter an invalid negative price.
+5. Enter zero price.
+6. Enter a negative quantity.
+7. Enter zero quantity.
+8. Enter a harvest date later than the expiry date.
+9. Submit the product.
+10. Observe the result.
 
 **Expected Result:**  
-Only valid and listed products should be available for marketplace ordering.
+The application should reject invalid product values and prevent
+logically invalid product information from being created.
 
-**Actual Result:**  
-Only listed products are visible in the marketplace. Products that are not listed are not available for ordering.
+**Actual Result:**
 
-**Status:** PASS
+- Negative price was rejected.
+- Price value of `0` was rejected.
+- Price value of `0.01` was accepted.
+- Negative quantity was rejected.
+- Quantity value of `0` was rejected.
+- Quantity value of `1` was accepted.
+- However, the application allowed a product to be created when the
+  expiry date was earlier than the harvest date.
 
-**Defect:** None
+**Status:** FAIL
+
+**Defect:** BUG-PROD-001
+
+**Observation:**  
+Input validation for price and quantity worked as expected. However,
+date relationship validation between harvest date and expiry date is
+missing.
 
 **Evidence:**  
-No evidence attached.
+[BUG-PROD-001 - Invalid Product Dates](../05-Test-Evidence/Product-Management/BUG-PROD-001-invalid-product-dates.png)
 
 ---
 
