@@ -473,3 +473,277 @@ The user was prevented from accessing the unauthorized resource.
 
 **Evidence:**  
 No evidence attached.
+
+
+# 3. Product Management
+
+Test cases for product creation, validation, product lifecycle, marketplace visibility, product deletion, and product access control.
+
+---
+
+## TS-PROD-001 - Retrieve Products
+
+**Scenario:**  
+Verify products can be retrieved.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A farmer account is available.
+- An administrator account is available.
+- A product has been registered by a farmer.
+
+**Test Steps:**
+
+1. Log in as a farmer.
+2. Register a product in the marketplace.
+3. Verify that the product is placed in a pending state.
+4. Log in as an administrator.
+5. Review the pending product.
+6. Activate the product.
+7. Navigate to the marketplace.
+8. Search for the activated product.
+
+**Expected Result:**  
+Active products should be retrieved successfully and displayed on the marketplace.
+
+**Actual Result:**  
+When a farmer registers a product, it is initially set to pending. After the administrator makes the product active, it is displayed on the marketplace and can be purchased by a buyer.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-PROD-002 - Create Product With Valid Data
+
+**Scenario:**  
+Verify product can be created with valid data.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A valid farmer account is available.
+- Product creation functionality is accessible.
+
+**Test Steps:**
+
+1. Log in as a farmer.
+2. Navigate to the Add Product page.
+3. Enter valid product information.
+4. Submit the product.
+5. Observe the result.
+
+**Expected Result:**  
+The product should be successfully created.
+
+**Actual Result:**  
+Product was successfully created with valid data.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-PROD-003 - Product Creation With Missing Required Fields
+
+**Scenario:**  
+Verify product creation with missing required fields.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A valid farmer account is available.
+- Add Product page is accessible.
+
+**Test Steps:**
+
+1. Log in as a farmer.
+2. Navigate to the Add Product page.
+3. Leave one or more required fields empty.
+4. Attempt to create the product.
+5. Observe the result.
+
+**Expected Result:**  
+The application should prevent product creation when required fields are missing.
+
+**Actual Result:**  
+Product creation requires the required fields. The product cannot be created when required information is missing.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-PROD-004 - Product Creation With Invalid Data
+
+**Scenario:**  
+Verify product creation with invalid data.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A valid farmer account is available.
+- Add Product page is accessible.
+
+**Test Steps:**
+
+1. Log in as a farmer.
+2. Navigate to the Add Product page.
+3. Enter invalid data into applicable product fields.
+4. Submit the product.
+5. Observe the result.
+
+**Expected Result:**  
+The application should validate product data and prevent creation when invalid values are provided.
+
+**Actual Result:**  
+Invalid data may be problematic if entered by the user. Specific invalid-data scenarios have not yet been verified.
+
+**Status:** NOT EXECUTED
+
+**Defect:** Not determined
+
+**Evidence:**  
+To be added after execution.
+
+---
+
+## TS-PROD-005 - Update Product
+
+**Scenario:**  
+Verify product can be updated.
+
+**Preconditions:**
+
+- An existing product is available.
+- An applicable user account is available.
+
+**Test Steps:**
+
+1. Log in to FarmFlow.
+2. Locate an existing product.
+3. Attempt to access product update functionality.
+4. Attempt to modify the product.
+
+**Expected Result:**  
+An authorized user should be able to update an existing product if the functionality is supported.
+
+**Actual Result:**  
+Product update functionality is currently not available.
+
+**Status:** NOT AVAILABLE
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-PROD-006 - Delete Product
+
+**Scenario:**  
+Verify product can be deleted.
+
+**Preconditions:**
+
+- An existing product is available.
+- Farmer and administrator accounts are available.
+
+**Test Steps:**
+
+1. Log in as a farmer.
+2. Check whether product deletion functionality is available.
+3. Log in as an administrator.
+4. Access product management.
+5. Attempt to delete an existing product.
+6. Observe the result.
+
+**Expected Result:**  
+Product deletion should only be available to users with the appropriate permissions.
+
+**Actual Result:**  
+Product deletion is not available to farmers. Administrators can delete products.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-PROD-007 - Nonexistent Product Handling
+
+**Scenario:**  
+Verify nonexistent product handling.
+
+**Preconditions:**
+
+- FarmFlow application/API is running.
+- A nonexistent product ID is available for testing.
+
+**Test Steps:**
+
+1. Attempt to access a product that does not exist.
+2. Observe the application/API response.
+3. Record the response status and message.
+
+**Expected Result:**  
+The application/API should handle the nonexistent product appropriately.
+
+**Actual Result:**  
+Not yet tested.
+
+**Status:** NOT EXECUTED
+
+**Defect:** Not determined
+
+**Evidence:**  
+To be added after execution.
+
+---
+
+## TS-PROD-008 - Unauthorized Product Modification
+
+**Scenario:**  
+Verify unauthorized product modification is rejected.
+
+**Preconditions:**
+
+- An existing product is available.
+- A user without the required authorization is available.
+
+**Test Steps:**
+
+1. Log in using a user who does not have permission to modify the product.
+2. Attempt to modify the product.
+3. Submit the modification request.
+4. Observe the application/API response.
+
+**Expected Result:**  
+The application/API should reject the modification request from an unauthorized user.
+
+**Actual Result:**  
+Not yet tested.
+
+**Status:** NOT EXECUTED
+
+**Defect:** Not determined
+
+**Evidence:**  
+To be added after execution.
