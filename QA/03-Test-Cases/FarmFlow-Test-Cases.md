@@ -1299,3 +1299,310 @@ API-level authorization for this specific test case has not yet been independent
 
 **Evidence:**  
 To be added after API-level authorization execution.
+
+
+# 6. UI Testing
+
+Test cases for validating FarmFlow user interface workflows, including authentication, registration, product management, order management, form validation, and logout functionality.
+
+---
+
+## TS-UI-001 - Login Workflow
+
+**Scenario:**  
+Verify login workflow.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A valid user account is available.
+- Login functionality is accessible.
+
+**Test Steps:**
+
+1. Open the FarmFlow application.
+2. Open the login form.
+3. Enter valid user credentials.
+4. Submit the login form.
+5. Observe the application behavior.
+6. Verify that the user is logged in with the appropriate role.
+
+**Expected Result:**  
+The user should be successfully authenticated and redirected to the appropriate application functionality.
+
+**Actual Result:**  
+The login workflow was successfully executed. The application authenticated the user and displayed the appropriate role-based interface.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Screen recording of the login workflow.
+
+---
+
+## TS-UI-002 - Invalid Login Workflow
+
+**Scenario:**  
+Verify invalid login workflow.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- Login page is accessible.
+- Invalid login credentials are available.
+
+**Test Steps:**
+
+1. Open the login form.
+2. Enter invalid login credentials.
+3. Submit the login form.
+4. Observe the application response.
+
+**Expected Result:**  
+The application should reject invalid credentials and display an appropriate authentication error.
+
+**Actual Result:**  
+Invalid login behavior was tested as part of the authentication testing. The application rejects invalid credentials.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Authentication test evidence.
+
+---
+
+## TS-UI-003 - Registration Workflow
+
+**Scenario:**  
+Verify registration workflow.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- Registration functionality is accessible.
+
+**Test Steps:**
+
+1. Open the registration form.
+2. Select the appropriate user type.
+3. Enter the required registration information.
+4. Submit the registration form.
+5. Observe the result.
+
+**Expected Result:**  
+The user should be successfully registered when valid registration information is provided.
+
+**Actual Result:**  
+The registration workflow was successfully executed. The registration interface provides user-type selection and fields for name, email, and password.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Screen recording of the registration workflow.
+
+---
+
+## TS-UI-004 - Product Viewing Workflow
+
+**Scenario:**  
+Verify product viewing workflow.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- Products are available in the system.
+- The user has access to the applicable product/marketplace functionality.
+
+**Test Steps:**
+
+1. Log in to FarmFlow.
+2. Navigate to the product/marketplace functionality.
+3. Review the available products.
+4. Open an available product where applicable.
+5. Verify the displayed product information.
+
+**Expected Result:**  
+Available products should be displayed correctly with relevant product information.
+
+**Actual Result:**  
+Products were displayed in the application. The admin product catalog displayed product information including product name, category, seller, price, stock, and status.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Screen recording of product viewing and product catalog.
+
+---
+
+## TS-UI-005 - Product Management Workflow
+
+**Scenario:**  
+Verify product management workflow.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A farmer account is available.
+- An administrator account is available.
+
+**Test Steps:**
+
+1. Log in as a farmer.
+2. Navigate to the Add Product page.
+3. Enter product information.
+4. Submit the product.
+5. Log in as an administrator.
+6. Navigate to Product Catalog.
+7. Review the submitted product.
+8. Verify the product status.
+9. Activate or manage the product where applicable.
+
+**Expected Result:**  
+A farmer should be able to submit a product, and an administrator should be able to review and manage the product according to its status.
+
+**Actual Result:**  
+The product management workflow was demonstrated.
+
+The farmer interface provides product fields including:
+
+- Product Name
+- Category
+- Unit
+- Price
+- Quantity Available
+- Harvest Date
+- Expiry Date
+- Description
+- Organic Product
+- Product Images
+
+The administrator Product Catalog displays products with seller, price, stock, status, and management actions.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Screen recording of farmer product creation and administrator product management.
+
+---
+
+## TS-UI-006 - Order Workflow
+
+**Scenario:**  
+Verify order workflow.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A buyer account is available.
+- At least one valid marketplace product is available.
+
+**Test Steps:**
+
+1. Log in as a buyer.
+2. Navigate to the Orders section.
+3. Review the available orders.
+4. Open an order.
+5. Review the order details.
+6. Verify the order status and status history.
+
+**Expected Result:**  
+The buyer should be able to view their orders and access the details of an individual order.
+
+**Actual Result:**  
+The order workflow was successfully demonstrated.
+
+The order details displayed:
+
+- Order number
+- Product/item
+- Quantity
+- Unit price
+- Subtotal
+- Shipping
+- Discount
+- Total
+- Order status
+- Status history
+
+The demonstrated order progressed from `PENDING` to `ACCEPTED`.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Screen recording of the buyer order details workflow.
+
+---
+
+## TS-UI-007 - Form Validation
+
+**Scenario:**  
+Verify form validation.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- A form containing required fields is accessible.
+
+**Test Steps:**
+
+1. Open a registration, login, or product form.
+2. Leave one or more required fields empty.
+3. Attempt to submit the form.
+4. Observe the validation behavior.
+
+**Expected Result:**  
+The application should prevent submission when required fields are missing and display an appropriate validation message.
+
+**Actual Result:**  
+Required-field validation was observed during authentication testing. The application displays browser validation when required fields are left empty.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Authentication test evidence.
+
+---
+
+## TS-UI-008 - Logout Workflow
+
+**Scenario:**  
+Verify logout workflow.
+
+**Preconditions:**
+
+- A user is successfully logged into FarmFlow.
+
+**Test Steps:**
+
+1. Log in to FarmFlow.
+2. Locate the Logout option.
+3. Click Logout.
+4. Observe the application behavior.
+5. Verify that authenticated navigation is no longer available.
+
+**Expected Result:**  
+The user should be successfully logged out and should no longer have access to authenticated functionality.
+
+**Actual Result:**  
+Logout functionality was successfully tested during the authentication workflow.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Authentication test evidence.
