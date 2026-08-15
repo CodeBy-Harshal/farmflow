@@ -976,3 +976,326 @@ Invalid products cannot be listed in the marketplace.
 
 **Evidence:**  
 No evidence attached.
+
+
+# 5. API Testing
+
+Test cases for validating FarmFlow REST APIs, including HTTP status codes, response structure, required fields, invalid requests, authentication, and authorization.
+
+---
+
+## TS-API-001 - Correct HTTP Status Codes
+
+**Scenario:**  
+Verify APIs return appropriate HTTP status codes for successful and unsuccessful requests.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- Postman is available.
+- API endpoints are accessible.
+
+**Test Steps:**
+
+1. Send a valid registration request to the registration API.
+2. Observe the HTTP response status.
+3. Send a duplicate registration request using an already registered email.
+4. Observe the HTTP response status.
+5. Send a valid login request.
+6. Observe the HTTP response status.
+
+**Expected Result:**  
+The API should return appropriate HTTP status codes according to the result of the request.
+
+**Actual Result:**
+
+- Valid registration returned `201 Created`.
+- Duplicate email registration returned `400 Bad Request`.
+- Valid login returned `200 OK`.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**
+
+- Postman registration request — `201 Created`
+- Postman duplicate email request — `400 Bad Request`
+- Postman login request — `200 OK`
+
+---
+
+## TS-API-002 - Response Body Structure
+
+**Scenario:**  
+Verify API response bodies follow the expected structure.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- Postman is available.
+
+**Test Steps:**
+
+1. Send a valid registration request.
+2. Inspect the JSON response body.
+3. Send a valid login request.
+4. Inspect the JSON response body.
+5. Verify the response contains the expected fields.
+
+**Expected Result:**  
+The API should return a valid JSON response with a consistent and meaningful response structure.
+
+**Actual Result:**  
+
+The registration API returned a JSON response containing:
+
+- `success`
+- `message`
+
+The login API returned a JSON response containing:
+
+- `success`
+- `message`
+- `data`
+- `token`
+- `user`
+
+The user object contained fields including:
+
+- `id`
+- `role`
+- `name`
+- `email`
+- `phone`
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Postman response screenshots.
+
+---
+
+## TS-API-003 - Required Response Fields
+
+**Scenario:**  
+Verify required fields are present in API responses.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- Postman is available.
+- Valid registration and login requests can be executed.
+
+**Test Steps:**
+
+1. Send a valid registration request.
+2. Inspect the response body.
+3. Send a valid login request.
+4. Inspect the response body.
+5. Verify the expected response fields are returned.
+
+**Expected Result:**  
+The API should return the required response fields for each endpoint.
+
+**Actual Result:**  
+
+The registration response returned:
+
+- `success`
+- `message`
+
+The login response returned:
+
+- `success`
+- `message`
+- `data`
+- authentication `token`
+- user information
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Postman response screenshots.
+
+---
+
+## TS-API-004 - Invalid Request Handling
+
+**Scenario:**  
+Verify the API properly handles invalid requests.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- Postman is available.
+- A request that violates an API validation rule is available.
+
+**Test Steps:**
+
+1. Send an invalid request to the API.
+2. Observe the HTTP status code.
+3. Inspect the response body.
+4. Verify that the API provides an appropriate error response.
+
+**Expected Result:**  
+The API should reject invalid requests and return an appropriate HTTP status code and error message.
+
+**Actual Result:**  
+
+A registration request using an already registered email was rejected.
+
+The API returned:
+
+- HTTP Status: `400 Bad Request`
+- `success: false`
+- Message: `Email already exists`
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+Postman duplicate-email registration response.
+
+---
+
+## TS-API-005 - Missing Required Parameters
+
+**Scenario:**  
+Verify the API handles requests with missing required parameters.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- Postman is available.
+
+**Test Steps:**
+
+1. Send an API request with one or more required parameters omitted.
+2. Observe the HTTP response.
+3. Inspect the response body.
+4. Verify that the request is rejected appropriately.
+
+**Expected Result:**  
+The API should reject requests containing missing required parameters and return an appropriate validation response.
+
+**Actual Result:**  
+Not yet tested through Postman.
+
+**Status:** NOT EXECUTED
+
+**Defect:** Not determined
+
+**Evidence:**  
+To be added after execution.
+
+---
+
+## TS-API-006 - Invalid IDs
+
+**Scenario:**  
+Verify the API handles invalid or nonexistent resource IDs correctly.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- Postman is available.
+- An endpoint accepting a resource ID is available.
+
+**Test Steps:**
+
+1. Send a request using an invalid or nonexistent resource ID.
+2. Observe the HTTP response.
+3. Inspect the response body.
+4. Verify that the API handles the invalid ID appropriately.
+
+**Expected Result:**  
+The API should reject or appropriately handle invalid/nonexistent IDs without returning incorrect resource data.
+
+**Actual Result:**  
+Not yet tested through Postman.
+
+**Status:** NOT EXECUTED
+
+**Defect:** Not determined
+
+**Evidence:**  
+To be added after execution.
+
+---
+
+## TS-API-007 - Authentication Requirements
+
+**Scenario:**  
+Verify protected APIs require authentication.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- A protected API endpoint is available.
+- Postman is available.
+
+**Test Steps:**
+
+1. Send a request to a protected API without authentication credentials/token.
+2. Observe the HTTP response.
+3. Send the same request with a valid authentication token.
+4. Compare the responses.
+
+**Expected Result:**  
+The protected API should reject unauthenticated requests and allow access when valid authentication is provided.
+
+**Actual Result:**  
+Authentication flow was verified through the login API. A successful login returned an authentication token.
+
+Protected API authentication without a token has not yet been independently executed for this test case.
+
+**Status:** NOT EXECUTED
+
+**Defect:** Not determined
+
+**Evidence:**  
+Postman login response demonstrates successful token generation. Protected endpoint verification to be added.
+
+---
+
+## TS-API-008 - Authorization Requirements
+
+**Scenario:**  
+Verify APIs enforce authorization requirements based on user permissions/roles.
+
+**Preconditions:**
+
+- FarmFlow backend API is running.
+- Users with different roles are available.
+- Postman is available.
+- A protected role-specific API endpoint is available.
+
+**Test Steps:**
+
+1. Authenticate as a user with the required role.
+2. Access the protected API.
+3. Observe the response.
+4. Authenticate as a user without the required role.
+5. Attempt to access the same API.
+6. Observe the response.
+
+**Expected Result:**  
+The API should allow authorized users to access permitted functionality and reject users without the required permissions.
+
+**Actual Result:**  
+Role-based authorization has been tested as part of the FarmFlow authorization scenarios.
+
+API-level authorization for this specific test case has not yet been independently documented through Postman.
+
+**Status:** NOT EXECUTED
+
+**Defect:** Not determined
+
+**Evidence:**  
+To be added after API-level authorization execution.
