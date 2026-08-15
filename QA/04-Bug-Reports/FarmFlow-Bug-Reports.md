@@ -18,6 +18,7 @@
 | Bug ID | Module | Title | Severity | Priority | Status |
 |---|---|---|---|---|---|
 | BUG-AUTH-001 | Authentication | Invalid email format is accepted during registration | Medium | Medium | Open |
+| BUG-PROD-001 | Product Management | Product can be created with expiry date earlier than harvest date | Medium | Medium | Open |
 
 ---
 
@@ -110,6 +111,58 @@ clear validation message to the user.
 ---
 
 ## Related Test Case
+
+
+---
+
+# BUG-PROD-001 - Product Can Be Created With Expiry Date Earlier Than Harvest Date
+
+**Module:** Product Management
+
+**Related Test Case:** TS-PROD-004
+
+**Title:** Product can be created with an expiry date earlier than the harvest date.
+
+**Severity:** Medium
+
+**Priority:** Medium
+
+**Status:** Open
+
+---
+
+## Description
+
+The product creation workflow allows a farmer to create a product when
+the expiry date is earlier than the harvest date.
+
+This results in logically invalid product information being accepted
+by the application.
+
+---
+
+## Preconditions
+
+- FarmFlow application is running.
+- A valid farmer account is available.
+- Product creation functionality is accessible.
+
+---
+
+## Steps to Reproduce
+
+1. Log in to FarmFlow as a farmer.
+2. Navigate to the Add Product page.
+3. Enter valid values for all required product fields.
+4. Enter a harvest date later than the expiry date.
+5. Submit the product.
+6. Observe the result.
+
+**Example:**
+
+```text
+Harvest Date: 20-08-2026
+Expiry Date: 15-08-2026
 
 **TS-AUTH-003 - Invalid Email Registration**
 
