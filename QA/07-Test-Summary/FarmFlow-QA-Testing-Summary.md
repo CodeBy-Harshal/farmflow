@@ -378,7 +378,7 @@ Additional testing is recommended for the currently unexecuted scenarios, partic
 | Metric | Result |
 |---|---:|
 | **Total Test Cases** | **47** |
-| **Passed** | **38** |
+| **Passed** | **37** |
 | **Failed** | **2** |
 | **Not Executed** | **6** |
 | **Not Available** | **2** |
