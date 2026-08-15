@@ -1259,28 +1259,71 @@ Verify protected APIs require authentication.
 - FarmFlow backend API is running.
 - A protected API endpoint is available.
 - Postman is available.
+- A valid authentication token can be obtained through the Login API.
 
 **Test Steps:**
 
-1. Send a request to a protected API without authentication credentials/token.
+1. Send a request to the protected Products API without providing an authentication token.
 2. Observe the HTTP response.
-3. Send the same request with a valid authentication token.
-4. Compare the responses.
+3. Send the same request with a valid Bearer authentication token.
+4. Observe the HTTP response.
+5. Compare the responses.
 
-**Expected Result:**  
-The protected API should reject unauthenticated requests and allow access when valid authentication is provided.
+**Endpoint:**
 
-**Actual Result:**  
-Authentication flow was verified through the login API. A successful login returned an authentication token.
+`GET /api/products/my`
 
-Protected API authentication without a token has not yet been independently executed for this test case.
+**Expected Result:**
 
-**Status:** NOT EXECUTED
+The protected API should:
 
-**Defect:** Not determined
+- Reject requests that do not contain a valid authentication token.
+- Allow authenticated requests when a valid Bearer token is provided.
 
-**Evidence:**  
-Postman login response demonstrates successful token generation. Protected endpoint verification to be added.
+**Actual Result:**
+
+### Without Authentication
+
+The protected Products API was requested without providing a Bearer token.
+
+The API returned:
+
+- HTTP Status: `401 Unauthorized`
+- `success: false`
+- Message: `No token provided`
+
+### With Bearer Token
+
+The same protected Products API was requested with a valid Bearer token obtained from the Login API.
+
+The API returned:
+
+- HTTP Status: `200 OK`
+- Product information in JSON format.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**
+
+- Protected Products API without token — `401 Unauthorized`
+- Protected Products API with Bearer token — `200 OK`
+
+Evidence files:
+
+`QA/06-API-Testing/Evidence/API-01-Products-Without-Token-401.png`
+
+`QA/06-API-Testing/Evidence/API-02-Products-With-Bearer-Token-200.png`
+
+**What this demonstrates:**
+
+- Protected API authentication
+- Bearer token authentication
+- HTTP `401 Unauthorized`
+- HTTP `200 OK`
+- JSON response validation
+- Protected resource access
 
 ---
 
