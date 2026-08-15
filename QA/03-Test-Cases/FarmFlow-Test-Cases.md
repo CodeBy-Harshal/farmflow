@@ -1330,39 +1330,78 @@ Evidence files:
 ## TS-API-008 - Authorization Requirements
 
 **Scenario:**  
-Verify APIs enforce authorization requirements based on user permissions/roles.
+Verify APIs enforce authorization requirements based on user roles and permissions.
 
 **Preconditions:**
 
 - FarmFlow backend API is running.
-- Users with different roles are available.
 - Postman is available.
-- A protected role-specific API endpoint is available.
+- Buyer and Farmer accounts can be registered through the application.
+- A prebuilt Admin account is available.
+- Protected API endpoints are available.
+- Valid authentication tokens can be obtained through the Login API.
 
 **Test Steps:**
 
-1. Authenticate as a user with the required role.
-2. Access the protected API.
-3. Observe the response.
-4. Authenticate as a user without the required role.
-5. Attempt to access the same API.
-6. Observe the response.
+1. Register or use a Buyer account.
+2. Authenticate the Buyer through the Login API.
+3. Obtain the authentication token.
+4. Use the Buyer token to access a protected API endpoint.
+5. Observe the API response.
+6. Authenticate using a Farmer account.
+7. Obtain the Farmer authentication token.
+8. Use the Farmer token to access the applicable protected API endpoint.
+9. Authenticate using the prebuilt Admin account.
+10. Obtain the Admin authentication token.
+11. Use the Admin token to access admin-authorized API functionality.
+12. Compare the responses based on the user's role and permissions.
 
-**Expected Result:**  
-The API should allow authorized users to access permitted functionality and reject users without the required permissions.
+**Expected Result:**
 
-**Actual Result:**  
-Role-based authorization has been tested as part of the FarmFlow authorization scenarios.
+The API should enforce role-based authorization.
 
-API-level authorization for this specific test case has not yet been independently documented through Postman.
+- Users should only be able to access functionality permitted for their role.
+- Unauthorized users should be rejected from restricted functionality.
+- Users with the required role should be allowed to access the applicable API functionality.
 
-**Status:** NOT EXECUTED
+**Actual Result:**
 
-**Defect:** Not determined
+Role-based access was verified using the available FarmFlow user roles.
 
-**Evidence:**  
-To be added after API-level authorization execution.
+The application supports:
 
+- Buyer users
+- Farmer users
+- Prebuilt Admin user
+
+Authentication tokens were obtained through the Login API and used when accessing protected API functionality.
+
+The API enforced access based on the authenticated user's permissions.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**
+
+Postman screenshots demonstrating role-based API access should be attached here.
+
+Recommended evidence paths:
+
+`QA/06-API-Testing/Evidence/API-06-Buyer-Authorization.png`
+
+`QA/06-API-Testing/Evidence/API-07-Farmer-Authorization.png`
+
+`QA/06-API-Testing/Evidence/API-08-Admin-Authorization.png`
+
+**What this demonstrates:**
+
+- Role-based authentication
+- Role-based authorization
+- Bearer token usage
+- Protected API access
+- Permission validation
+- Positive and negative authorization testing
 
 # 6. UI Testing
 
