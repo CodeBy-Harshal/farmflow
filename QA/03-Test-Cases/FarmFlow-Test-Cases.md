@@ -747,3 +747,232 @@ Not yet tested.
 
 **Evidence:**  
 To be added after execution.
+
+
+# 4. Order Management
+
+Test cases for order creation, order retrieval, order validation, order access control, and product-related order behavior.
+
+---
+
+## TS-ORDER-001 - Create Order With Authentication
+
+**Scenario:**  
+Verify an authenticated user can create an order.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- An authenticated user account is available.
+- A valid product is available.
+
+**Test Steps:**
+
+1. Log in to FarmFlow.
+2. Attempt to create an order.
+3. Observe the result.
+
+**Expected Result:**  
+Only users with the appropriate permissions should be able to create orders.
+
+**Actual Result:**  
+Only farmers and administrators can create orders.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-ORDER-002 - Retrieve Order Details
+
+**Scenario:**  
+Verify order details can be retrieved.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- An order exists.
+- An authorized user account is available.
+
+**Test Steps:**
+
+1. Log in using an authorized account.
+2. Request/access the order details.
+3. Observe the response.
+
+**Expected Result:**  
+The application should successfully return the details of an existing order.
+
+**Actual Result:**  
+Order details can be retrieved successfully.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-ORDER-003 - Invalid Order Data
+
+**Scenario:**  
+Verify invalid order data is rejected.
+
+**Preconditions:**
+
+- FarmFlow application/API is running.
+- Order creation functionality is available.
+
+**Test Steps:**
+
+1. Attempt to create an order using invalid order data.
+2. Submit the request.
+3. Observe the response.
+
+**Expected Result:**  
+The application/API should reject invalid order data and return an appropriate validation or error response.
+
+**Actual Result:**  
+Invalid order data was rejected.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-ORDER-004 - Nonexistent Order Handling
+
+**Scenario:**  
+Verify nonexistent order handling.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- Marketplace is accessible.
+
+**Test Steps:**
+
+1. Access the marketplace.
+2. Review the products available for ordering.
+3. Attempt to identify/access a product that is not available as a listed marketplace product.
+4. Observe the result.
+
+**Expected Result:**  
+Only valid and listed products should be available for marketplace ordering.
+
+**Actual Result:**  
+Only listed products are visible in the marketplace. Products that are not listed are not available for ordering.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-ORDER-005 - Unauthorized Order Access
+
+**Scenario:**  
+Verify unauthorized order access is rejected.
+
+**Preconditions:**
+
+- FarmFlow application/API is running.
+- An order exists.
+- A user without authorization to access the order is available.
+
+**Test Steps:**
+
+1. Log in using an unauthorized user account.
+2. Attempt to access an order that the user is not authorized to access.
+3. Observe the application/API response.
+
+**Expected Result:**  
+The application/API should reject unauthorized access to the order.
+
+**Actual Result:**  
+Unauthorized order access was rejected.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-ORDER-006 - Order Update Functionality
+
+**Scenario:**  
+Verify order update functionality.
+
+**Preconditions:**
+
+- An existing order is available.
+- An applicable user account is available.
+
+**Test Steps:**
+
+1. Log in to FarmFlow.
+2. Locate an existing order.
+3. Attempt to access order update functionality.
+4. Attempt to modify the order.
+
+**Expected Result:**  
+An authorized user should be able to update an order if order-update functionality is supported.
+
+**Actual Result:**  
+Order update functionality is currently not available.
+
+**Status:** NOT AVAILABLE
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
+
+---
+
+## TS-ORDER-007 - Invalid Product Information in Order
+
+**Scenario:**  
+Verify order behavior with invalid product information.
+
+**Preconditions:**
+
+- FarmFlow application is running.
+- Marketplace is accessible.
+
+**Test Steps:**
+
+1. Open the marketplace.
+2. Review the products available for ordering.
+3. Verify whether invalid/unavailable products can be listed.
+4. Attempt to place an order using an invalid/unlisted product if possible.
+5. Observe the result.
+
+**Expected Result:**  
+Invalid or unavailable products should not be listed in the marketplace and should not be available for ordering.
+
+**Actual Result:**  
+Invalid products cannot be listed in the marketplace.
+
+**Status:** PASS
+
+**Defect:** None
+
+**Evidence:**  
+No evidence attached.
